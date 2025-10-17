@@ -11,8 +11,8 @@ select
    units.rent,
    units.square_feet,
    units.state,
-   units.status,
-   units.uploaded_at,
+   units.status as status_units,
+   units.uploaded_at as uploaded_at_units,
    units.zip_code
 
 

@@ -1,0 +1,42 @@
+models:
+  - name: leases
+    description: lease agreements with the releationship to the applications 
+    columns:
+      - name: lease_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: properties
+    description: records of rental properties in the portfolio
+    columns: 
+      - name: property_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: rental_applications
+    description: applications for renting
+    columns:
+      - name: rental_applications.id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: units
+    description: '{{doc("unit_docs")}}'
+    columns:
+      - name: unit_id
+        data_tests:
+          - unique
+          - not_null
+      - name: status_units
+        data_tests:
+          - accepted_values:
+              values: ['construction','vacant','rented','occupied']
+      - name: property_id
+        data_tests:
+          - relationships:
+              field: <property_id>
+              to: ref('properties')
+  

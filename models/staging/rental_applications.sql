@@ -1,6 +1,6 @@
 select
    rental_applications.contact_info_id,
-   rental_applications.created_at,
+   rental_applications.created_at as applications_created_at,
    rental_applications.deleted_at,
    rental_applications.id,
    rental_applications.status,

@@ -2,8 +2,21 @@ sources:
   - name: property_management
     database: raw  
     schema: property_management  
+    config: 
+      freshness:
+        warn_after:
+          count: 1
+          period: day
+        error_after:
+          count: 2
+          period: day
+      loaded_at_field: etl_loaded_at
+
+
     tables:
       - name: properties
       - name: leases
+        description: individual lease agreements 
       - name: units
+        description: individual units contained per property
       - name: rental_applications
